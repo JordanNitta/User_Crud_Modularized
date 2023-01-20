@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Show User</title>
+</head>
+<body>
+    <div class="nav">
+        <h2>User {{user.id}}</h2>
+        <a href="/">Home</a>
+    </div>
+    <div class="show_user">
+        <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Created On: {{user.created_at.strftime('%b, %m, %d, %y')}}</p>
+        <p>Last Updated On: {{user.updated_at.strftime('%b, %d, %y')}}</p>
+    </div>
+    <div class="bottom-tags">
+        <a href="/users/{{user.id}}/edit" class="edit">Edit</a>
+        <a href="/users/delete/{{user.id}}" class="delete">Delete</a>
+    </div>
+</body>
+</html>
